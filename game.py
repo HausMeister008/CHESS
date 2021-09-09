@@ -1,14 +1,18 @@
-import pygame, sys
+import pygame, sys, math
 
 pygame.init()
 
 # creating window
-rect_size = 80
-size = [rect_size*8, rect_size*8]
+rect_size = 100
+size = [rect_size*8 + math.ceil(int(rect_size * 0.5)), rect_size*8 +  math.ceil(int(rect_size * 0.5))]
 screen = pygame.display.set_mode(size)
 clock = pygame.time.Clock()
 
 screen.fill((0,0,0))
+
+chars = 'ABCDEFGH'
+board_data = {(char, number+1): {'manned': False, 'figure': ''} for char in chars for number in range(8)}
+# board_data[('A', 2)] --> {'manned': True, 'figure': 'horse1_black'}
 
 for i in range(8):
     for j in range(4):
@@ -18,7 +22,8 @@ for i in range(8):
             ((j*2+(i%2))*rect_size , #where to draw it horizontally
             i*rect_size, # where to draw it vertically
             rect_size, # which size
-            rect_size))
+            rect_size
+        ))
 
 go = True
 while go:
