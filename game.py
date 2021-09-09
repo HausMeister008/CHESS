@@ -9,6 +9,7 @@ print(chars_space_size)
 size = [rect_size*8 + chars_space_size, rect_size*8 +  chars_space_size]
 screen = pygame.display.set_mode(size)
 clock = pygame.time.Clock()
+side_color = (100,100,100)
 
 screen.fill((0,0,0))
 
@@ -26,16 +27,11 @@ for i in range(8):
             rect_size, # which size
             rect_size
         ))
-    pygame.draw.rect(
-        screen, 
-        (100,100,100), 
-        (8*rect_size, 
-        i*rect_size, 
-        chars_space_size, #
-        rect_size)
-    )
-    pygame.draw.rect(screen, (100,100,100), (i*rect_size, 8*rect_size, rect_size,chars_space_size))
-    pygame.draw.rect(screen, (100,100,100), (8*rect_size, i*rect_size,chars_space_size, rect_size))
+    pygame.draw.rect(screen, side_color, (i*rect_size, 8*rect_size, rect_size,chars_space_size))
+    pygame.draw.rect(screen, side_color, (8*rect_size, i*rect_size,chars_space_size, rect_size))
+
+pygame.draw.rect(screen, side_color, (8*rect_size, 8*rect_size,chars_space_size, chars_space_size))
+
 go = True
 while go:
     for event in pygame.event.get():
