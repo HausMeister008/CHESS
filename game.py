@@ -27,25 +27,15 @@ for i in range(8):
             rect_size
         ))
     pygame.draw.rect(
-        screen, #draw on the screen
-        (100,100,100), #color
-        (8*rect_size, # where to draw it horizontally
-        i*rect_size, # where to draw it horizontally, # where to draw it vertically
-        chars_space_size, # which size
+        screen, 
+        (100,100,100), 
+        (8*rect_size, 
+        i*rect_size, 
+        chars_space_size, #
         rect_size)
     )
-    pygame.draw.rect(
-        screen, #draw on the screen
-        (100,100,100), #color
-        (i*rect_size, # where to draw it horizontally
-        8*rect_size, # where to draw it horizontally, # where to draw it vertically
-        # which size
-        rect_size,
-        chars_space_size)
-    )
-pygame.draw.rect(
-    
-)
+    pygame.draw.rect(screen, (100,100,100), (i*rect_size, 8*rect_size, rect_size,chars_space_size))
+    pygame.draw.rect(screen, (100,100,100), (8*rect_size, i*rect_size,chars_space_size, rect_size))
 go = True
 while go:
     for event in pygame.event.get():
