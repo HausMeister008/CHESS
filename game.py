@@ -71,10 +71,13 @@ for name, object_ in players.items():
 go = True
 while go:
     for event in pygame.event.get():
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1: # 2 -> middle click; 3 -> right click; 4 -> scroll up; 5 -> scroll down
+            x_pos, y_pos = (int(math.trunc(x/rect_size)) for x in pygame.mouse.get_pos()) # rounding down to get the field we are on
+            print(x_pos+1, chars[y_pos])
         if event.type == pygame.QUIT:
             sys.exit()
     pressed = pygame.key.get_pressed()
     # if pressed[pygame.K_UP]:
     #     players['farmer_1_white'].move_figure((players['farmer_1_white'].chars[players['farmer_1_white'].chars.index(players['farmer_1_white'].position[0])-1], 1))
     pygame.display.update()
-    clock.tick(30)
+    clock.tick(20)

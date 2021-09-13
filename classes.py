@@ -1,8 +1,7 @@
 import pygame, sys, math
 
-
 class Figure:
-    def __init__(self, name:str,image_name:str, position:tuple, screen, rect_size):
+    def __init__(self, name:str,image_name:str, position:tuple, screen, rect_size): #position -> Buchstabe/Zahl
         self.name = name
         self.image_name = image_name
         self.position = position
