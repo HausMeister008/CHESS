@@ -1,2 +1,3 @@
 -nächstes Mal position des Zeigers auf mögliche Figur zurückführen 
 -> Figur anklicken möglich
+-Defintiv ganz viel Blut

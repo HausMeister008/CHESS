@@ -67,25 +67,28 @@ for player in range(1,3):
 def draw_figures():
     for name, object_ in players.items():
         object_.place_figure()
+        board_data[object_.position]['manned'] = True
+        board_data[object_.position]['figure'] = object_.name
+
 draw_figures()
 def draw():
     draw_board()
     draw_figures()
 go = True
-while go:
+while go: 
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1: # 2 -> middle click; 3 -> right click; 4 -> scroll up; 5 -> scroll down
             x_pos, y_pos = (int(math.trunc(x/rect_size)) for x in pygame.mouse.get_pos()) # rounding down to get the field we are on
             #print(x_pos+1, chars[y_pos])
             name = ''
             for player in players.values():
-                if player.position == (chars[y_pos], x_pos+1):
+                if player.position == convert_coordinates((x_pos, y_pos)):
                     name = player.name
                     p = players[name]
-                    p.move_figure((p.c_x, p.c_y + (-1 if 'white' in name else + 1)))
-                    draw()
+                    #p.move_figure((p.c_x, p.c_y + (-1 if 'white' in name else + 1)))
+                    #draw()
+                    p.calc_possible_postitions(board_data)
                     break
-            print(name)
         if event.type == pygame.QUIT:
             sys.exit()
     pressed = pygame.key.get_pressed()
