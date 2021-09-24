@@ -19,7 +19,8 @@ class Figure:
     def move_figure(self, f_position): #future position, erst x, dann y
         old_position = self.position
         self.c_x, self.c_y = f_position[0], f_position[1] # defining x and y coordinates
-        self.position = (self.chars[f_position[1]],f_position[0]) #erst y, dann x
+        self.position = (self.chars[f_position[1]],f_position[0]+1) #erst y, dann x (x in richtigen Zahlen deswegen +1)
+        print(self.position)
         #self.place_figure()
         #deleting old image here
 

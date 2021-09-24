@@ -82,7 +82,7 @@ while go:
                 if player.position == (chars[y_pos], x_pos+1):
                     name = player.name
                     p = players[name]
-                    p.move_figure((p.c_x, p.c_y + (-2 if 'white' in name else + 2)))
+                    p.move_figure((p.c_x, p.c_y + (-1 if 'white' in name else + 1)))
                     draw()
                     break
             print(name)
