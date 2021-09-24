@@ -16,15 +16,15 @@ class Figure:
     def place_figure(self):
         self.screen.blit(self.image, (((self.rect_size/2) - self.image.get_width() / 2)+ self.c_x*self.rect_size, self.c_y*self.rect_size))
 
-    def move_figure(self, position):
+    def move_figure(self, f_position): #future position, erst x, dann y
         old_position = self.position
-        self.position = position
-        self.c_x, self.c_y = self.position[1]-1, self.chars.index(self.position[0]) # defining x and y coordinates
-        self.place_figure()
+        self.c_x, self.c_y = f_position[0], f_position[1] # defining x and y coordinates
+        self.position = (self.chars[f_position[1]],f_position[0]) #erst y, dann x
+        #self.place_figure()
         #deleting old image here
 
 
         
 class Farmer(Figure):
-    def __init__(self):
-        pass
+    def __init__(self, name: str, image_name: str, position: tuple, screen, rect_size):
+        super().__init__(name, image_name, position, screen, rect_size)
